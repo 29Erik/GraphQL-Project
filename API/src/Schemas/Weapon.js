@@ -9,7 +9,7 @@ const typeDefs = `
     
     type Mutation {
         createWeapon(sold: WeaponCreate!) : Weapon
-        updateWeapon(sold: WeaponUpdate!) : Weapon
+        updateWeapon(id: ID, sold: WeaponUpdate!) : Weapon
         deleteWeapon(id: ID!) : String
     }
     

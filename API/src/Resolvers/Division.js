@@ -1,12 +1,12 @@
-import {DivisionModel} from '../Models/Division'
+import {DivisionModel} from '../Models/Division';
 
 export const DivisionResolvers = {
     Query: {
-        getById(root, {id}){
-            return `Hola ${name}`;
+        async getById(root, {id}){
+            return await DivisionModel.findById(id);
         },
-        getAll(root, args) {
-
+        async getAll(root, args) {
+            return await DivisionModel.find();
         }
     },
     Mutation: {
@@ -15,11 +15,13 @@ export const DivisionResolvers = {
             await newDivision.save();
             return newDivision;
         },
-        updateDivision() {
-
+        async updateDivision(_, {id, divisionUpdated}) {
+            await DivisionModel.findByIdAndUpdate(id, divisionUpdated);
+            return `Division Updated`;
         },
-        deleteDivision() {
-
+        async deleteDivision(_, {id}) {
+            await DivisionModel.findByIdAndDelete(id);
+            return `Division Deleted`;
         }
     }
 }

@@ -8,8 +8,8 @@ const typeDefs = `
     }
     
     type Mutation {
-        createDivision(sold: DivisionCreate!) : Division
-        updateDivision(sold: DivisionUpdate!) : Division
+        createDivision(division: DivisionCreate!) : Division
+        updateDivision(id: ID, division: DivisionUpdate!) : Division
         deleteDivision(id: ID!) : String
     }
     

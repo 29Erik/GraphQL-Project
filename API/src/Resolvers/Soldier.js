@@ -1,12 +1,12 @@
-import {SoldierModel} from '../Models/Soldier'
+import {SoldierModel} from '../Models/Soldier';
 
 export const SoldierResolvers = {
     Query: {
-        getById(root, {id}){
-            return `Hola ${name}`;
+        async getById(root, {id}){
+            return await SoldierModel.findById(id);
         },
-        getAll(root, args) {
-
+        async getAll(root, args) {
+            return await SoldierModel.find();
         }
     },
     Mutation: {
@@ -15,11 +15,13 @@ export const SoldierResolvers = {
             await newSoldier.save();
             return newSoldier;
         },
-        updateSoldier() {
-
+        async updateSoldier(_, {id, soldierUpdate}) {
+            await SoldierModel.findByIdAndUpdate(id, soldierUpdate);
+            return `Soldier Updated`;
         },
-        deleteSoldier() {
-
+        async deleteSoldier(_, {id}) {
+            await SoldierModel.findByIdAndDelete(id);
+            return `Soldier Deleted`;
         }
     }
 }

@@ -1,12 +1,12 @@
-import {WeaponModel} from '../Models/Weapon'
+import {WeaponModel} from '../Models/Weapon';
 
 export const WeaponResolvers = {
     Query: {
-        getById(root, {id}){
-            return `Hola ${name}`;
+        async getById(root, {id}){
+            return await WeaponModel.findById(id);
         },
-        getAll(root, args) {
-
+        async getAll(root, args) {
+            return await WeaponModel.find();
         }
     },
     Mutation: {
@@ -15,11 +15,13 @@ export const WeaponResolvers = {
             await newWeapon.save();
             return newWeapon;
         },
-        updateWeapon() {
-
+        async updateWeapon(_, {id, weaponUpdated}) {
+            await WeaponModel.findByIdAndUpdate(id, weaponUpdated);
+            return `Weapon Updated`;
         },
-        deleteWeapon() {
-
+        async deleteWeapon(_, {id}) {
+            await WeaponModel.findByIdAndDelete(id);
+            return `Weapon Deleted`;
         }
     }
 }
