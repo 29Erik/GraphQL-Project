@@ -15,4 +15,4 @@ const divisionSchema = new Schema({
     }
 });
 
-export default model('Division', divisionSchema);
+export const DivisionModel = model('Division', divisionSchema);

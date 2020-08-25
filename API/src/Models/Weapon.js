@@ -15,4 +15,4 @@ const weaponSchema = new Schema({
     }
 });
 
-export default model('Weapon', weaponSchema);
+export const WeaponModel =  model('Weapon', weaponSchema);

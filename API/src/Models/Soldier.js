@@ -10,7 +10,7 @@ const soldierSchema = new Schema({
         required: true
     },
     role: {
-        type: Enumerator,
+        type: String,
         required: true
     },
     damage: {
@@ -27,4 +27,4 @@ const soldierSchema = new Schema({
     }
 });
 
-export default model('Soldier', soldierSchema);
+export const SoldierModel = model('Soldier', soldierSchema);
