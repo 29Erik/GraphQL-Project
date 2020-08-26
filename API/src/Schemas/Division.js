@@ -1,7 +1,7 @@
 export default `
     type Query {
-        getById(id: ID!): Division
-        getAll(): [Division]
+        getDivisionById(id: ID!): Division
+        getAllDivisions: [Division]
     }
     
     type Mutation {
@@ -27,6 +27,6 @@ export default `
         _id: ID!
         name: String!
         positions: String!
-        qty: SoldierRole!
+        qty: Int!
     }
 `;

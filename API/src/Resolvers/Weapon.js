@@ -2,10 +2,10 @@ import {WeaponModel} from "../Models/Weapon";
 
 export default {
     Query: {
-        async getById(root, {id}){
+        async getWeaponById(root, {id}){
             return await WeaponModel.findById(id);
         },
-        async getAll(root, args) {
+        async getAllWeapons(root, args) {
             return await WeaponModel.find();
         }
     },

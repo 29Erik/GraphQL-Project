@@ -1,7 +1,7 @@
 export default `
     type Query {
-        getById(id: ID!): Weapon
-        getAll(): [Weapon]
+        getWeaponById(id: ID!): Weapon
+        getAllWeapons: [Weapon]
     }
     
     type Mutation {
@@ -10,23 +10,28 @@ export default `
         deleteWeapon(id: ID!) : String
     }
     
+    enum WeaponType {
+        MELE
+        DISTANCE
+    }
+    
     type Weapon {
         _id: ID
         name: String!
         damage: Int!
-        type: Int!
+        type: WeaponType!
     }
     
     input WeaponCreate {
         name: String!
         damage: Int!
-        type: Int!
+        type: WeaponType!
     }
     
     input WeaponUpdate {
         _id: ID!
         name: String!
         damage: String!
-        type: SoldierRole!
+        type: WeaponType!
     }
 `;

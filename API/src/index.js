@@ -20,14 +20,18 @@ app.get('/', (req, res) => {
     })
 })
 
-makeExecutableSchema({
+let mySchema = schema;
+let myResolver = resolvers;
+
+const schemaLocal = makeExecutableSchema({
     typeDefs: schema,
-    resolvers: resolvers
-})
+    resolvers: resolvers,
+});
 
 app.use('/graphql', graphqlHTTP({
-    graphiql: true
-}))
+    graphiql: true,
+    schema: schemaLocal
+}));
 
 // Sincronización del puerto con el server
 app.listen(port, () => console.log(`Server en ${port}`))

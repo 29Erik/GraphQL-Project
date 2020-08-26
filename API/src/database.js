@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
 import {uri} from './Utils/Const';
 
+let conn = null
+
 export async function connect() {
     try {
-        await mongoose.createConnection(uri, {
+        conn = await mongoose.createConnection(uri, {
             useCreateIndex: true,
             useNewUrlParser: true,
             useUnifiedTopology: true,
@@ -12,6 +14,7 @@ export async function connect() {
             useFindAndModify: false
         })
         console.log('Conectado a la DB');
+        return conn;
     }
     catch(err) {
         console.log(`Algo ha fallado en la conexión, ${err}`);

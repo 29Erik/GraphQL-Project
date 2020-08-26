@@ -2,10 +2,10 @@ import {DivisionModel} from "../Models/Division";
 
 export default {
     Query: {
-        async getById(root, {id}){
+        async getDivisionById(root, {id}){
             return await DivisionModel.findById(id);
         },
-        async getAll(root, args) {
+        async getAllDivisions(root, args) {
             return DivisionModel.find();
         }
     },

@@ -2,18 +2,16 @@ import {SoldierModel} from '../Models/Soldier';
 
 export default {
     Query: {
-        async getById(root, {id}){
+        async getSoldierById(root, {id}){
             return await SoldierModel.findById(id);
         },
-        async getAll(root, args) {
+        async getAllSoldiers(root, args) {
             return SoldierModel.find();
         }
     },
     Mutation: {
         async createSoldier(_, {soldier}) {
-            const newSoldier = new SoldierModel(soldier);
-            await newSoldier.save();
-            return newSoldier;
+            return await SoldierModel.create(soldier).exec();
         },
         async updateSoldier(_, {id, soldierUpdate}) {
             await SoldierModel.findByIdAndUpdate(id, soldierUpdate);

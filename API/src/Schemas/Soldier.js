@@ -1,13 +1,19 @@
 export default `
     type Query {
-        getById(id: ID!): Soldier
-        getAll(): [Soldier]
+        getSoldierById(id: ID!): Soldier
+        getAllSoldiers: [Soldier]
     }
     
     type Mutation {
-        createSoldier(sold: SoldierCreate!) : Soldier
+        createSoldier(soldier: SoldierCreate!) : Soldier
         updateSoldier(id: ID!, sold: SoldierUpdate!) : Soldier
         deleteSoldier(id: ID!) : String
+    }
+    
+    enum SoldierRole {
+        SGT
+        CRL
+        PVT
     }
     
     type Soldier {
@@ -18,12 +24,6 @@ export default `
         damage: Int!
         senseArea: Int
         health: Int
-    }
-    
-    enum SoldierRole {
-        SGT
-        CRL
-        PVT
     }
     
     input SoldierCreate {
