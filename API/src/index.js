@@ -3,7 +3,7 @@ import express from "express";
 // Importar el modulo para procesar las rutas con graphql
 const graphqlHTTP = require('express-graphql').graphqlHTTP;
 // Importar el schema
-import schema from './Schemas/schema';
+import schema from './Schemas/index';
 // Conectar a la db
 import {connect} from './database';
 

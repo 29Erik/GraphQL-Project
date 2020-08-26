@@ -1,7 +1,4 @@
-import {makeExecutableSchema} from 'graphql-tools';
-import {DivisionResolvers} from '../Resolvers/Division';
-
-const typeDefs = `
+export default `
     type Query {
         getById(id: ID!): Division
         getAll(): [Division]
@@ -33,8 +30,3 @@ const typeDefs = `
         qty: SoldierRole!
     }
 `;
-
-export default makeExecutableSchema({
-    typeDefs: typeDefs,
-    resolvers: DivisionResolvers
-})

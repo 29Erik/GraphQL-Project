@@ -1,9 +1,15 @@
 import mongoose from "mongoose";
+import {uri} from './Utils/Const';
 
 export async function connect() {
     try {
-        await mongoose.connect('mongodb+srv://Testimony:@Thomas1408@ageofwar.plk2d.mongodb.net/AgeofWar?retryWrites=true&w=majority', {
-            useNewUrlParser: true
+        await mongoose.createConnection(uri, {
+            bufferCommands: false, // Disable mongoose buffering
+            bufferMaxEntries: 0, // and MongoDB driver buffering
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true,
+            useFindAndModify: false
         })
         console.log('Conectado a la DB');
     }
