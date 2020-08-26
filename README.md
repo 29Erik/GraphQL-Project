@@ -7,7 +7,7 @@ Proyecto desarrollado gracias a.
   - [Babel](https://babeljs.io)
   - [GraphQL](https://graphql.org)
 # Descripción
-> Esta aplicación cuenta con un desarrollo básico con GraphQL, Mongoose, NodeJs y Babel para esquematizar un prototipo bpásico y funcional
+> Esta aplicación cuenta con un desarrollo básico con GraphQL, Mongoose, NodeJs y Babel para esquematizar un prototipo simple y funcional
 > que se aplique un BackEnd que no use API Rest sino GraphQL como bien se ha dicho anteriormente.
 
 # Instrucciones de uso.
