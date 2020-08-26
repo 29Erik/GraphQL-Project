@@ -4,11 +4,11 @@ import {uri} from './Utils/Const';
 export async function connect() {
     try {
         await mongoose.createConnection(uri, {
-            bufferCommands: false, // Disable mongoose buffering
-            bufferMaxEntries: 0, // and MongoDB driver buffering
+            useCreateIndex: true,
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useCreateIndex: true,
+            bufferCommands: false,
+            bufferMaxEntries: 0,
             useFindAndModify: false
         })
         console.log('Conectado a la DB');
