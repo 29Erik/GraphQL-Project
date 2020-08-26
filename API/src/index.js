@@ -4,8 +4,11 @@ import express from "express";
 const graphqlHTTP = require('express-graphql').graphqlHTTP;
 // Importar el schema
 import schema from './Schemas/index';
+import resolvers from './Resolvers/index';
 // Conectar a la db
 import {connect} from './database';
+import {port} from './Utils/Const';
+import {makeExecutableSchema} from "@graphql-tools/schema";
 
 // Constructor de express que permite ejecución
 const app = express();
@@ -17,12 +20,14 @@ app.get('/', (req, res) => {
     })
 })
 
+makeExecutableSchema({
+    typeDefs: schema,
+    resolvers: resolvers
+})
+
 app.use('/graphql', graphqlHTTP({
-    graphiql: true,
-    schema: schema
+    graphiql: true
 }))
 
-//Declaramos el puerto
-const port = 3000;
 // Sincronización del puerto con el server
 app.listen(port, () => console.log(`Server en ${port}`))

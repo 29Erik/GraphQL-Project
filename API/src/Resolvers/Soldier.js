@@ -1,12 +1,12 @@
 import {SoldierModel} from '../Models/Soldier';
 
-export const SoldierResolvers = {
+export default {
     Query: {
         async getById(root, {id}){
             return await SoldierModel.findById(id);
         },
         async getAll(root, args) {
-            return await SoldierModel.find();
+            return SoldierModel.find();
         }
     },
     Mutation: {

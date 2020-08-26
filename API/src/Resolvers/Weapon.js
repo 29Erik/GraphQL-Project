@@ -1,6 +1,6 @@
-import {WeaponModel} from '../Models/Weapon';
+import {WeaponModel} from "../Models/Weapon";
 
-export const WeaponResolvers = {
+export default {
     Query: {
         async getById(root, {id}){
             return await WeaponModel.findById(id);

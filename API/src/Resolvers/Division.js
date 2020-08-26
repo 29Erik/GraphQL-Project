@@ -1,12 +1,12 @@
-import {DivisionModel} from '../Models/Division';
+import {DivisionModel} from "../Models/Division";
 
-export const DivisionResolvers = {
+export default {
     Query: {
         async getById(root, {id}){
             return await DivisionModel.findById(id);
         },
         async getAll(root, args) {
-            return await DivisionModel.find();
+            return DivisionModel.find();
         }
     },
     Mutation: {
