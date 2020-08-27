@@ -1,4 +1,4 @@
-import {WeaponModel} from "../Models/Weapon";
+import WeaponModel from "../Models/Weapon";
 
 export default {
     Query: {

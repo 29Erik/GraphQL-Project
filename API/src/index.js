@@ -5,23 +5,24 @@ const graphqlHTTP = require('express-graphql').graphqlHTTP;
 // Importar el schema
 import schema from './Schemas/index';
 import resolvers from './Resolvers/index';
-// Conectar a la db
 import {connect} from './database';
 import {port} from './Utils/Const';
 import {makeExecutableSchema} from "@graphql-tools/schema";
 
 // Constructor de express que permite ejecución
 const app = express();
-connect();
+// Conectar a la db
+connect().then(res => {
+    console.log(`Conectado a la DB`)
+}).catch(err => {
+    console.log(`Fallo ${err}`)
+});
 
 app.get('/', (req, res) => {
     res.json({
         message: 'Hello World'
     })
 })
-
-let mySchema = schema;
-let myResolver = resolvers;
 
 const schemaLocal = makeExecutableSchema({
     typeDefs: schema,

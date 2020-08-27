@@ -1,5 +1,6 @@
-import {Schema, model} from 'mongoose';
-
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const model = mongoose.model;
 const weaponSchema = new Schema({
     name: {
         type: String,
@@ -15,4 +16,4 @@ const weaponSchema = new Schema({
     }
 });
 
-export const WeaponModel =  model('Weapon', weaponSchema);
+module.exports =  model('weapon', weaponSchema);

@@ -1,4 +1,6 @@
-import {SoldierModel} from '../Models/Soldier';
+import WeaponModel from "../Models/Weapon";
+
+const SoldierModel = require('../Models/Soldier');
 
 export default {
     Query: {
@@ -11,7 +13,9 @@ export default {
     },
     Mutation: {
         async createSoldier(_, {soldier}) {
-            return await SoldierModel.create(soldier).exec();
+            const newSoldier = new SoldierModel(soldier);
+            await newSoldier.save();
+            return newSoldier;
         },
         async updateSoldier(_, {id, soldierUpdate}) {
             await SoldierModel.findByIdAndUpdate(id, soldierUpdate);

@@ -1,5 +1,6 @@
-import {Schema, model} from 'mongoose';
-
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const model = mongoose.model;
 const divisionSchema = new Schema({
     name: {
         type: String,
@@ -15,4 +16,4 @@ const divisionSchema = new Schema({
     }
 });
 
-export const DivisionModel = model('Division', divisionSchema);
+module.exports = model('division', divisionSchema);

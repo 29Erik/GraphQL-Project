@@ -1,5 +1,6 @@
-import {Schema, model} from 'mongoose';
-
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const model = mongoose.model;
 const soldierSchema = new Schema({
     name: {
         type: String,
@@ -27,4 +28,4 @@ const soldierSchema = new Schema({
     }
 });
 
-export const SoldierModel = model('Soldier', soldierSchema);
+module.exports = model('soldier', soldierSchema);

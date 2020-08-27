@@ -1,4 +1,4 @@
-import {DivisionModel} from "../Models/Division";
+import DivisionModel from "../Models/Division";
 
 export default {
     Query: {
